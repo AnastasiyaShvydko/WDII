@@ -1,6 +1,6 @@
 const myArray = [{label: 'Week01',
 url: 'week1/index.html'}, {label: 'Week02',
-url: 'https://www.w3schools.com/'}]
+url: 'week2/index.html'}]
 
 function loadLinks(){
 for (var i = 0; i < myArray.length; i++){
