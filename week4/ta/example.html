@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#board {
+    display: grid;
+    grid-template-columns: 200px 200px 200px ;
+    
+}
+div {
+    display: flex;
+   justify-content: center;
+    height: 200px;
+    border: 5px solid rgb(3, 3, 3);
+    font-size:120px;
+    align-items: center;;
+    
+}
+    </style>
+    
+</head>
+<body>
+    <section id="board">
+    <div id="section1"></div>
+    <div id="section2"></div>
+    <div id="section3"></div>
+    <div id="section4"></div>
+    <div id="section5"></div>
+    <div id="section6"></div>
+    <div id="section7"></div>
+    <div id="section8"></div>
+    <div id="section9"></div>
+</section>
+<button onclick="resetAll()">reset</button>
+<script>
+    let touchNumber = 0;
+    /*let section1 = document.getElementById('section1');
+    let section2 = document.getElementById('section2');
+    let section3 = document.getElementById('section3');
+    let section4 = document.getElementById('section4');
+    let section5 = document.getElementById('section5');
+    let section6 = document.getElementById('section6');
+    let section7 = document.getElementById('section7');
+    let section8 = document.getElementById('section8');
+    let section9 = document.getElementById('section9');*/
+    const slots = document.getElementsByTagName('div');
+    //console.log(slots)
+   for( slot of slots){
+     slot.addEventListener('click', touchFunction);
+        
+
+  }
+ //slots.forEach(touchFunction())
+       
+    function touchFunction(event){
+       
+        if (event.target.innerHTML == ""){
+         if(touchNumber == 0 | touchNumber % 2 == 0)
+            {//console.log("hello")
+           // console.log(touchNumber)
+            event.target.innerHTML= 'X';
+           
+            }  
+            
+        //if (touchNumber%2 == 0){
+          //  slot.style.background = "green";
+//drawO();
+
+       // }
+      else{
+      event.target.innerHTML= 'O';
+    }
+    touchNumber +=1;
+    
+       /* if(section1.innerHTML && section4.innerHTML && section7.innerHTML == "X" || section2.innerHTML && section5.innerHTML && section8.innerHTML == "X"){
+           console.log("X is won!");
+
+        }*/
+    
+    }
+    else {alert('Slot is not empty!')}
+    
+}
+    function resetAll(){
+        const slots = document.getElementsByTagName('div');
+        for( slot of slots){
+            slot.innerHTML= "";
+            touchNumber = 0;
+        }
+    }
+</script>
+</body>
+</html>
