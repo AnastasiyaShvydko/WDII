@@ -2,7 +2,8 @@ const myArray = [{label: 'Week01',
 url: 'week1/index.html'}, {label: 'Week02',
 url: 'week2/index.html'},{label: 'Week03',
 url: 'week3/index.html'}, {label: 'Week04',
-url: 'week4/index.html'} ]
+url: 'week4/index.html'}, {label: 'Week05',
+url: 'week5/index.html'} ]
 
 function loadLinks(){
 for (var i = 0; i < myArray.length; i++){
