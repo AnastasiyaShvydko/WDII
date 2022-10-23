@@ -23,6 +23,8 @@ const addBtn = document.getElementById('add');
         let indexOfElement = checkArray.indexOf(element);
         if(element == event.target){
         allTasks[indexOfElement].complited = true;
+        
+        //element.addEventListener('click',unCheck)
         var allTasksString = JSON.stringify(allTasks) 
         localStorage.setItem('time', allTasksString)
           showAllTasks(allTasks)
@@ -30,6 +32,22 @@ const addBtn = document.getElementById('add');
 })
 
     }
+
+    function unCheck(event){
+        console.log("ji")
+        let checkArray = Array.from(checkList)
+        checkArray.forEach(element=>{
+        let indexOfElement = checkArray.indexOf(element);
+        if(element == event.target){
+        allTasks[indexOfElement].complited = false;
+        var allTasksString = JSON.stringify(allTasks) 
+        localStorage.setItem('time', allTasksString)
+          showAllTasks(allTasks)
+    }
+})
+
+
+}
     
     export function addTask(){
         let aCompleteTask = {};
@@ -119,6 +137,7 @@ const addBtn = document.getElementById('add');
        
         addRemove();
         addComplite();
+        addUncheck()
         }
 
         export function showCurrent(){
@@ -146,6 +165,7 @@ const addBtn = document.getElementById('add');
            
             addRemove();
             addComplite();
+            addUncheck()
         }
 
 
@@ -175,7 +195,24 @@ const addBtn = document.getElementById('add');
             }
         function addComplite(){
             let checkArray =  Array.from(checkList)   
-            checkArray.forEach(element => element.addEventListener('click', compliteTask))
+            checkArray.forEach(element => {
+                if(element.checked == true){
+                    element.addEventListener('click', unCheck)
+                }
+                else{element.addEventListener('click', compliteTask)}})
         }
-        
+        function addUncheck(){
+            let checkArray = Array.from(checkList)
+
+            allTasks.forEach(element => {
+                console.log(element)
+                if(element.complited == true){
+                
+                console.log(checkArray)
+                let indexOfElement = allTasks.indexOf(element);
+                //element.addEventListener('click', unCheck)
+                //element.addEventListener('click', unCheck)
+            }
+            })
+        }
     
