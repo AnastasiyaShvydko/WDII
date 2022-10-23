@@ -40,7 +40,7 @@ input{
     
 }
 input[type = "checkbox"]{
-    width: 30%;
+    width: 20pt;
 }
 #task{
     display:flex;
