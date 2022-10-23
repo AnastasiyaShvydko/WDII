@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Fuzzy+Bubbles&display=swap');
+body{
+    display: flex;
+    justify-content: space-around;
+    font-family:'Dancing Script', cursive;
+
+}
+
+.display{
+
+width: 300pt;
+background-color: bisque;
+text-align: center;
+margin: 10pt;
+padding: 10pt;
+background-image: url('background.jpg');
+background-size: 100%;
+
+}
+.section{
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color:rgba(243, 227, 227, 0.498);
+
+}
+
+#task.complited{
+    
+    text-decoration: line-through;
+    
+    
+}
+input{
+    height: 20pt;
+    background-color: #c4aebd;
+    
+}
+#task{
+    display:flex;
+    font-family:'Dancing Script', cursive;
+    justify-content:center;
+    align-items: center
+}
+#all_tasks_display{
+    height: 300pt;
+    border: 5pt black;
+    text-align: start;
+}
+.remove{
+   font-size: large;
+ height: 20pt;
+
+}
+.left{
+    display: flex;
+    justify-content: center;
+}
+button{
+    font-family:'Dancing Script', cursive;
+}
+.check{
+    height: 20pt;
+}
+::-webkit-input-placeholder {color:#000}
+::-moz-placeholder {color:#000}
+::-moz-placeholder{color:#000}
+::-ms-input-placeholder{color:#000}
