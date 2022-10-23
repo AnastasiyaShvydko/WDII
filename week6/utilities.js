@@ -99,7 +99,7 @@ const addBtn = document.getElementById('add');
         }
         countDisplay.innerHTML = (numberOfTask - count);   
         }
-        document.getElementById('new_task').value = " ";
+        document.getElementById('new_task').value = "";
        
         addRemove();
         addComplite();
