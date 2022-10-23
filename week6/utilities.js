@@ -54,7 +54,7 @@ const addBtn = document.getElementById('add');
        aCompleteTask  = {id: time ,content : newTask, complited: false }
        var storedTasksString = localStorage.getItem('time')
         //var allTasks = JSON.parse(storedTasksString);
-        if(newTask != " "){
+        if(newTask != ""){
         if(allTasks == null){
            allTasks = [] }
     allTasks.push(aCompleteTask)
