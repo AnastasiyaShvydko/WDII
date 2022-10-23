@@ -12,10 +12,7 @@ const addBtn = document.getElementById('add');
     export function doFilter(){
        allTasks.sort(function(a, b){return a.complited - b.complited}
         )
-        
-           showAllTasks(allTasks)
-        
-    }  
+        }  
     export function compliteTask(event){
         
         let checkArray = Array.from(checkList)
@@ -86,7 +83,7 @@ const addBtn = document.getElementById('add');
         taskDisplayer.innerHTML = null
         var numberOfTask = allTasks.length
         for (var i = 0; i < numberOfTask; i++) {
-            
+        doFilter()
         var aTask = allTasks[i]
         //taskDisplayer.innerHTML += '<div class = "task"><input type="checkbox" checked =false class="incomplite">' + aTask.id + " " + aTask.content + " " + aTask.complited +  '<span class = "remove" >X</span></div>'
         if (allTasks[i].complited == true)
