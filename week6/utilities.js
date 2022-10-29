@@ -6,6 +6,7 @@ const checkboxList = document.getElementsByClassName('incomplite');
 const btnRemove = document.getElementsByClassName('remove');
 const checkList = document.getElementsByClassName('check');
 const addBtn = document.getElementById('add');
+const btnEdit = document.getElementsByClassName('edit');
 
 
 
@@ -71,6 +72,7 @@ const addBtn = document.getElementById('add');
 
         addRemove();
         addComplite();
+        addEdit();
     }
     
     export function showAllTasks(){
@@ -88,12 +90,12 @@ const addBtn = document.getElementById('add');
         //taskDisplayer.innerHTML += '<div class = "task"><input type="checkbox" checked =false class="incomplite">' + aTask.id + " " + aTask.content + " " + aTask.complited +  '<span class = "remove" >X</span></div>'
         if (allTasks[i].complited == true)
         {
-            taskDisplayer.innerHTML += '<div class= "section"><div id = "task" class = "complited"><input type="checkbox"checked = "true"  class = "check">' + aTask.id + " " + aTask.content + " " + '</div><button type ="button" class = "remove" >X</button></div>'
+            taskDisplayer.innerHTML += '<div class= "section"><div class = "task" class = "complited"><input type="checkbox"checked = "true"  class = "check">' + aTask.id + " " + aTask.content + " " + '</div><div id="buttons"><button type ="button" class = "remove" >X</button><button type ="button" class = "edit">EDIT</button></div></div>'
         count +=1 }
         else{
             
             
-            taskDisplayer.innerHTML += '<div class= "section"><div id = "task"><input type="checkbox" class="check"  >' + aTask.id + " " + aTask.content + " " + '</div><button type ="button" class = "remove" >X</button></div>'
+            taskDisplayer.innerHTML += '<div class= "section"><div class = "task"><input type="checkbox" class="check"  >' + aTask.id + " " + aTask.content + " " + '</div><div id="buttons"><button type ="button" class = "remove" >X</button><button type ="button" class = "edit">EDIT</button></div></div>'
         }
         
         }
@@ -103,6 +105,7 @@ const addBtn = document.getElementById('add');
        
         addRemove();
         addComplite();
+        addEdit();
      
        
         
@@ -124,7 +127,8 @@ const addBtn = document.getElementById('add');
         //taskDisplayer.innerHTML += '<div class = "task"><input type="checkbox" checked =false class="incomplite">' + aTask.id + " " + aTask.content + " " + aTask.complited +  '<span class = "remove" >X</span></div>'
         if (allTasks[i].complited == true)
         {
-            taskDisplayer.innerHTML += '<div class= "section"><div id = "task" class = "complited"><input type="checkbox"checked = "true"  class = "check">' + aTask.id + " " + aTask.content + " " + '</div><button type ="button" class = "remove" >X</button></div>'
+            taskDisplayer.innerHTML += '<div class= "section"><div class = "task" class = "complited"><input type="checkbox"checked = "true"  class = "check">' + aTask.id + " " + aTask.content + " " + '</div><div id="buttons"><button type ="button" class = "remove" >X</button><button type ="button" class = "edit">EDIT</button></div></div>'
+            
          }
        }
         //countDisplay.innerHTML = (count);
@@ -134,7 +138,9 @@ const addBtn = document.getElementById('add');
        
         addRemove();
         addComplite();
-        addUncheck()
+        //addUncheck();
+        addEdit();
+
         }
 
         export function showCurrent(){
@@ -153,8 +159,9 @@ const addBtn = document.getElementById('add');
             //taskDisplayer.innerHTML += '<div class = "task"><input type="checkbox" checked =false class="incomplite">' + aTask.id + " " + aTask.content + " " + aTask.complited +  '<span class = "remove" >X</span></div>'
             if (allTasks[i].complited != true)
             {
-                taskDisplayer.innerHTML += '<div class= "section"><div id = "task" ><input type="checkbox" class = "check">' + aTask.id + " " + aTask.content + " " + '</div><button type ="button" class = "remove" >X</button></div>'
-            count +=1 }
+                taskDisplayer.innerHTML += '<div class= "section"><div class = "task" ><input type="checkbox" class = "check"><div>' + aTask.id + " " + aTask.content + '</div></div><div id="buttons"><button type ="button" class = "remove" >X</button><button type ="button" class = "edit">EDIT</button></div></div>'
+            count +=1 
+             }
            }
             countDisplay.innerHTML = (count);   
             }
@@ -162,7 +169,8 @@ const addBtn = document.getElementById('add');
            
             addRemove();
             addComplite();
-            addUncheck()
+            //addUncheck()
+            addEdit();
         }
 
 
@@ -186,6 +194,21 @@ const addBtn = document.getElementById('add');
             );
             
             }
+            function editElement(event){
+                //console.log('hi')
+                let btnEditArray = Array.from(btnEdit)
+            btnEditArray.forEach(element=>{
+                
+                let indexOfElement = btnEditArray.indexOf(element);
+                if(element == event.target){
+                    document.getElementById('new_task').value = allTasks[indexOfElement].content;
+                    allTasks.splice(indexOfElement,1)
+                   var allTasksString = JSON.stringify(allTasks) 
+                       localStorage.setItem('time', allTasksString)
+                }
+                //showAllTasks(allTasks) 
+            })
+        }
             function addRemove(){
                 let btnRemoveArray = Array.from(btnRemove)
                 btnRemoveArray.forEach(element => element.addEventListener('click', removeElement))
@@ -197,8 +220,16 @@ const addBtn = document.getElementById('add');
                     element.addEventListener('click', unCheck)
                 }
                 else{element.addEventListener('click', compliteTask)}})
+
+
         }
-        function addUncheck(){
+
+        function addEdit(){
+            let btnEditArray = Array.from(btnEdit);
+            btnEditArray.forEach(element => element.addEventListener('click', editElement))
+            }
+        
+        /*function addUncheck(){
             let checkArray = Array.from(checkList)
 
             allTasks.forEach(element => {
@@ -211,5 +242,5 @@ const addBtn = document.getElementById('add');
                 //element.addEventListener('click', unCheck)
             }
             })
-        }
+        }*/
     

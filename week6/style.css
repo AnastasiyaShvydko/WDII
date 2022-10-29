@@ -55,12 +55,14 @@ input[type = "checkbox"]{
     border-style: outset;
     text-align: start;
     padding: 15pt;
-    margin-top: -2pt
+    margin-top: -2pt;
+    overflow-y:auto;
 }
 .remove{
    font-size: large;
  height: 20pt;
  width:25pt;
+ padding-left: 5pt;
 
 }
 .left{
@@ -73,6 +75,7 @@ button{
     font-family:'Dancing Script', cursive;
     border:2pt solid black; 
     width: 80pt;
+
 }
 .check{
     height: 20pt;
@@ -81,6 +84,17 @@ input #new_task {
     padding: 5pt;
     
 }
+.edit{
+    height: 20pt;
+    width:35pt;
+}
+#buttons{
+    display: flex;
+}
+.task{
+    display:grid;
+    grid-template-columns: 20% 80%;
+} 
 ::-webkit-input-placeholder {color:#000}
 ::-moz-placeholder {color:#000}
 ::-moz-placeholder{color:#000}
