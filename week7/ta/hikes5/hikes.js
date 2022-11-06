@@ -1,6 +1,6 @@
 // Example of using Classes and modules to organize the code needed to render our list of hikes. Not using MVC here.
 
-import Comments from "./comments.js";
+import Comments from "./comments_1.js";
 
 const myComment = new Comments('comments');
 //create an array of hikes
