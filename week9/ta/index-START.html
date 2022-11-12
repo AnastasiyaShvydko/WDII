@@ -73,8 +73,8 @@ let songKey = ''
   
   function listenInput(event){
   let inputPress = event.keyCode;
-  lstSong.forEach(sound =>{songKey = sound.getAttribute('data-key')
-  console.dir(sound)
+  lstSong.forEach(sound =>{songKey = sound.dataset.key
+  console.dir(songKey)
   if(inputPress == songKey){
 
 
@@ -88,7 +88,8 @@ sound.play()
   
   }})
 elementArray.forEach(element => {
-if(element.getAttribute('data-key') == inputPress){
+if(element.dataset.key == inputPress){
+  console.log(element.dataset.key)
   let step = parseInt(element.style.marginTop.substring(0,2))
   if( step < 90){console.log(element.style.marginTop)
   let newStep = step + 10 
